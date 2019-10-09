@@ -120,11 +120,11 @@ function MyCanvas(glcanvas, shadersrelpath, meshesrelpath) {
         function(v) {
             if (v) {
                 // Toggle other lights viewFrom
-                scene.lights.forEach(function(camera) {
+                glcanvas.scene.lights.forEach(function(camera) {
                     camera.viewFrom = false;
                 });
                 // Turn off all regular cameras viewFrom
-                scene.cameras.forEach(function(camera) {
+                glcanvas.scene.cameras.forEach(function(camera) {
                     camera.viewFrom = false;
                 })
                 glcanvas.camera = glcanvas.mycamera;
