@@ -1,3 +1,6 @@
+vec3 = glMatrix.vec3;
+mat4 = glMatrix.mat4;
+
 /**
     A class to teach students about gluLookAt 
 
@@ -18,7 +21,7 @@
   * @param {vec3} center The point we want the camera to look at
   * @param {vec3} up The up direction we try to maintain
   */
-function gluLookAt(eye, center, up) {
+ function gluLookAt(eye, center, up) {
     m = glMatrix.mat4.create();
     // TODO: FILL THIS IN
     return m;
@@ -69,7 +72,6 @@ function MyCamera() {
 function MyCanvas(glcanvas, shadersrelpath, meshesrelpath) {
     SceneCanvas(glcanvas, shadersrelpath, meshesrelpath);
     glcanvas.mycamera = new MyCamera();
-    console.log(glcanvas.mycamera);
 
 
     let menu = glcanvas.gui.addFolder('My Camera');
@@ -91,6 +93,7 @@ function MyCanvas(glcanvas, shadersrelpath, meshesrelpath) {
             for (let k = 0; k < 3; k++) {
                 glcanvas.mycamera.center[k] = xyz[k];
             }
+            glcanvas.scene.children[glcanvas.scene.children.length-1].transform = [0.2, 0, 0, 0, 0, 0.2, 0, 0, 0, 0, 0.2, 0, xyz[0], xyz[1], xyz[2], 1];
             requestAnimFrame(glcanvas.repaint);
         }
     );

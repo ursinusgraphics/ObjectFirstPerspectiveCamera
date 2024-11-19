@@ -73,6 +73,7 @@
                 throw(error);
             }
             // Setup glsl scene
+            scene.children.push({"name":"lookat", "transform":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "shapes":[{"type":"sphere", "material":"red"}]});
             glslcanvas.setupScene(scene, glslcanvas.clientWidth, glslcanvas.clientHeight);
             glslcanvas.updateMeshDrawings();
             requestAnimFrame(glslcanvas.repaint);
@@ -83,6 +84,8 @@
 
     // Load the sample scene as a default
     scene = BlockLoader.loadJSON("sample-scene.json");
+    scene.children.push({"name":"lookat", "transform":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "shapes":[{"type":"sphere", "material":"red"}]});
+    console.log(scene);
     glslcanvas.setupScene(scene, glslcanvas.clientWidth, glslcanvas.clientHeight);
     glslcanvas.drawEdges = false;
     glslcanvas.updateMeshDrawings();
